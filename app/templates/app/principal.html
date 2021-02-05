@@ -1,0 +1,312 @@
+{% extends 'app/base.html' %}
+{% load static %}
+
+  {% block principal %}
+
+    <div class="container-fluid bg-principal" id="principal">
+      <div class="row">
+        <div class="col-sm-12">
+          <div class="jumbotron jumbotron-main">
+            <h2>Sitio web del ejercicio de Git</h2>
+            <h3>En Pandemia</h3>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
+
+
+{% block competencias %}
+      
+    <div class="container-fluid bg-dark" id="competencias">
+      <div class="row">
+        <h3>Nuestras Competencias</h3>
+      </div>
+      <div class="row">
+      {% if todos %}
+            {%for todo in todos.0|slice:":4"%}
+        <div class="col-md-6 col-lg-3">
+          <div class="card">
+            <h3 class="card-header">{{todo.name}}</h3>
+            <div class="card-body">
+              <h4 class="card-title">{{todo.status}}</h4>
+              <p class="card-text">{{todo.species}}</p>
+              <a href="#!" class="btn btn-dark">Ver mas</a>
+            </div>
+          </div>
+        </div>
+          {% endfor %}
+          {% else %}
+          <p>No se encuentran datos disponibles</p>
+          {% endif %}
+      </div>
+      
+      <div class="row">
+      {% if todos %}
+        {%for todo in todos.0|slice:"5:8"%}
+        <div class="col-md-4">
+          <div class="card">
+            <h3 class="card-header">{{todo.name}}</h3>
+            <div class="card-body">
+              <h4 class="card-title">{{todo.status}}</h4>
+              <p class="card-text">{{todos.species}}</p>
+              <a href="#!" class="btn btn-dark">Ver mas</a>
+            </div>
+          </div>
+        </div>
+      {% endfor %}
+      {% else %}
+      <p>No se encuentran datos disponibles</p>
+      {% endif %}
+    </div>
+
+{% endblock %}
+
+
+  
+{% block equipo %}
+
+    <div class="container-fluid bg-light" id="equipo">
+      <div class="row">
+        <h3>Nuestro Equipo</h3>
+      </div>
+      <div class="row">
+        <div id="team-carousel" 
+            class="carousel slide" 
+            data-ride="carousel" 
+            data-interval="3000">
+          <div class="carousel-inner" style="padding: 4rem;" role="listbox">
+          {% if todos %}
+            {%for todo in todos.0|slice:"9:12"%}
+            <div style="height: 400px" class="carousel-item">
+              <img class="d-block img-fluid carousel-img" src="{{todo.image}}">
+              <div class="carousel-caption">
+                Grupo Front End
+              </div>
+            </div>
+            {% endfor %}
+            {% else %}
+              <p>No se encuentran datos disponibles</p>
+            {% endif %}
+          </div>
+          <a class="left carousel-control" 
+              href="#team-carousel" 
+              role="button" 
+              data-slide="prev">
+            <span class="icon-prev" aria-hidden="true"></span>
+          </a>
+          <a class="right carousel-control" 
+              href="#team-carousel" 
+              role="button" 
+              data-slide="next">
+            <span class="icon-next" aria-hidden="true"></span>
+          </a>
+          <ol class="carousel-indicators">
+            <li data-target="#team-carousel" 
+                data-slide-to="0" 
+                class="active"></li>
+            <li data-target="#team-carousel" 
+                data-slide-to="1"></li>
+            <li data-target="#team-carousel" 
+                data-slide-to="2"></li>
+          </ol>
+        </div>
+      </div>
+    </div>
+
+{% endblock equipo %}
+
+
+{% block enlaces %}
+      
+    <div class="container-fluid bg-dark" id="enlaces">
+      <div class="row">
+          <h3>Enlaces de Interés</h3>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="media">
+            <img class="d-flex mr-3" src="{% static 'app/img/flag-64.png' %}"  
+                alt="Generic placeholder image">
+            <div class="media-body">
+              <h5 class="mt-0">Enlaces Tipo 1</h5>
+              <ul>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="media">
+            <img class="d-flex mr-3" src="{% static 'app/img/world-64.png' %}" 
+                alt="Generic placeholder image">
+            <div class="media-body">
+              <h5 class="mt-0">Enlaces Tipo 2</h5>
+              <ul>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6">
+          <div class="media">
+            <img class="d-flex mr-3" src="{% static 'app/img/screen-64.png' %}" alt="Generic placeholder image">
+            <div class="media-body">
+              <h5 class="mt-0">Enlaces Tipo 3</h5>
+              <ul>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-6">
+          <div class="media">
+            <img class="d-flex mr-3" src="{% static 'app/img/gear-64.png' %}" 
+                alt="Generic placeholder image">
+            <div class="media-body">
+              <h5 class="mt-0">Enlaces Tipo 4</h5>
+              <ul>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+                <li>Enlace de interés del grupo <a href="#">Ver más</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock %}
+
+
+{% block contacto %}
+
+
+<div class="container-fluid bg-light" id="contacto">
+<div class="row">
+        <h2>Contáctanos</h2>
+        <p>{{todos.2}}</p>
+</div>
+<div class="row justify-content-center align-items-center h-100">
+<div class="col-sm-6" id="contact-form">
+<form class="form-group" action="" method="POST" novalidate>
+    {% csrf_token %}
+    <table>
+        {{todos.1.as_table}}
+    </table>
+    <input type="submit" value="enviar">
+    {% if messages %}
+    {% for message in messages %}
+    <p  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </p>
+    {% endfor %}
+</p>
+{% endif %}
+</form>
+</div>
+</div>
+</div>
+{% endblock  %} 
+
+
+
+{% comment %} 
+          <div class="container-fluid bg-light" id="contacto">
+      <div class="row">
+        <h2>Contáctanos</h2>
+      </div>
+      <div class="row justify-content-center align-items-center h-100">
+        <div class="col-sm-6" id="contact-form">
+          <form>
+            <div class="form-group">
+              <label for="contact-name">Nombre</label>
+              <input type="text" class="form-control" id="contact-name" 
+                  placeholder="Tu Nombre">
+            </div>
+            <div class="form-group">
+              <label for="contact-email">Email</label>
+              <input type="email" class="form-control" id="contact-email" 
+                  placeholder="Tu Email">
+            </div>
+            <div class="form-group">
+              <label for="contact-msg">Email</label>
+              <textarea class="form-control" id="contact-msg" 
+                  placeholder="Tu Mensaje" rows="4"></textarea>
+            </div>
+            <div class="btn-group">
+              <button type="button" class="btn btn-outline-secondary">Enviar</button>
+              <button type="button" class="btn btn-outline-secondary">Limpiar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+{% endcomment %}
+
+{% block footer %}
+   <footer class="footer bg-dark text-center">
+      <p class="text-muted">&copy; 2020 Awakelab.</p>
+      <p class="text-muted">Grupo Full Stack Python</p>
+    </footer>
+{% endblock %}
+
+
+    
+{% block modalForm %}
+      <div class="modal" id="profile-modal" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal"
+              aria-label="Close"><span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title" id="profile-modal-label">Perfil</p>
+          </div>
+            <div class="modal-body">
+              Perfil
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-success">Guardar</button>
+              <button type="button" 
+                  class="btn btn-secondary" 
+                  data-dismiss="modal">Cancelar</button>
+            </div>
+        </div>
+     </div>
+    </div>
+    <div class="modal" id="settings-modal" role="dialog">
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" 
+              aria-label="Close"><span aria-hidden="true">&times;</span>
+            </button>
+            <p class="modal-title" id="settings-modal-label">Configuración</p>
+          </div>
+          <div class="modal-body">
+            Configuración
+          </div>
+          <div class="modal-footer">
+            <button type="button" 
+                class="btn btn-success">Guardar</button>
+            <button type="button" 
+                class="btn btn-secondary" 
+                data-dismiss="modal">Cancelar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock  %}
